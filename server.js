@@ -1,7 +1,9 @@
+require('dotenv').config();
 const express = require('express');
 const postRouter = require('./posts/postRouter');
 const userRouter = require('./users/userRouter');
 const server = express();
+const port = process.env.PORT || 5000;
 
 // use express and add the logging middleware.
 server.use(express.json());
@@ -16,8 +18,8 @@ server.get('/', (req, res) => {
 });
 
 // Start server
-server.listen(4000, () => {
-  console.log('Server on 4000');
+server.listen(port, () => {
+  console.log(`Server on ${port}`);
 });
 
 //  ##########
